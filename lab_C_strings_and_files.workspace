@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Workspace Name="lab_C_strings_and_files" Database="" Version="10000">
+  <Project Name="Main" Path="Main/Main.project" Active="Yes"/>
+  <Project Name="Utilidades" Path="Utilidades/Utilidades.project" Active="No"/>
+  <Project Name="Ficheros" Path="Ficheros/Ficheros.project" Active="No"/>
+  <BuildMatrix>
+    <WorkspaceConfiguration Name="Debug" Selected="yes">
+      <Environment/>
+      <Project Name="Main" ConfigName="Debug"/>
+      <Project Name="Utilidades" ConfigName="Debug"/>
+      <Project Name="Ficheros" ConfigName="Debug"/>
+    </WorkspaceConfiguration>
+    <WorkspaceConfiguration Name="Release" Selected="yes">
+      <Environment/>
+      <Project Name="Main" ConfigName="Release"/>
+      <Project Name="Utilidades" ConfigName="Release"/>
+      <Project Name="Ficheros" ConfigName="Release"/>
+    </WorkspaceConfiguration>
+  </BuildMatrix>
+</CodeLite_Workspace>
