@@ -7,7 +7,7 @@
 #include <unistd.h> // read
 #include <stdlib.h> // realloc
 
-
+#define PERM 		0644
 #define BUFSIZE		512			
 #define LINES		75
 
@@ -38,5 +38,17 @@ int countFileWords(char * fileName){
 
 int readFile(char * fileName){
     
-   return -1;
+    return -1;
+}
+
+int fileExists(const char* file) {
+    return -1;
+}
+    
+int copyFile(char * srcFileName, char * outFileName){
+    return -1;
+}
+
+int compareFiles(char * FileName1, char * FileName2){
+    return -1;
 }
