@@ -353,6 +353,30 @@ bool run_pr1_ex3(tTestSection* test_section) {
         end_test(test_section, "PR3_EX2_01", true);
     }  
     
-	
+	failed = false;
+   start_test(test_section, "PR3_EX13", "copy file");   
+
+   result = copyFile("../hamlet.txt","../copy_hamlet.txt");   
+   
+   if (result != 0) {
+        failed = true;
+        
+        }  
+        
+   result = compareFiles("../hamlet.txt","../copy_hamlet.txt");
+   
+    if (result != 1) {
+        failed = true;
+        
+        }  
+   
+   if (failed) {
+        end_test(test_section, "PR3_EX13", false);
+        passed = false;
+    }
+   else {
+        end_test(test_section, "PR3_EX13", true);
+    }   
+    
     return passed;
 }

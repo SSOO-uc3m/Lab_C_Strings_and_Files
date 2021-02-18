@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Workspace Name="lab_C_strings_and_files" Database="" Version="10000">
-  <Project Name="Main" Path="Main/Main.project" Active="Yes"/>
-  <Project Name="Utilidades" Path="Utilidades/Utilidades.project" Active="No"/>
+  <Project Name="Main" Path="Main/Main.project" Active="No"/>
+  <Project Name="Utilidades" Path="Utilidades/Utilidades.project" Active="Yes"/>
   <Project Name="Ficheros" Path="Ficheros/Ficheros.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">

@@ -8,6 +8,7 @@
 #include <stdlib.h> // realloc
 
 
+#define PERM 		0644
 #define BUFSIZE		512			
 #define LINES		75
 
@@ -165,4 +166,76 @@ int readFile(char * fileName){
     
     return 0;
 
+}
+
+int fileExists(const char* file) {
+    struct stat buf;
+    return (stat(file, &buf) == 0);
+}
+// copy one srcFileName to srcFileName. The original name and the destination are parameters of the function. The destination file must have protections that allow it to be read by any user, but only to be modified by the owner.
+int copyFile(char * srcFileName, char * outFileName){
+   int infile, outfile, nread;
+	char buffer [BUFSIZE];
+	if ( (infile = open(srcFileName, O_RDONLY) ) < 0 )
+		return(-1); /* no puede abrirse */
+	if ( (outfile = creat (outFileName, PERM) ) < 0 ) {
+		close (infile);
+		return (-2); /* no puede crearse */
+		}
+	/*lectura de name1 BUFSIZE caracteres de una vez*/
+	while( (nread = read(infile, buffer, BUFSIZE) ) > 0 )
+	{
+		/*escribir el buffer al archivo de salida*/
+		if (write (outfile, buffer, nread) < nread)
+		{
+			close(infile);
+			close(outfile);
+			return (-3); 			/* error al escribir */
+		}
+	}
+	if (nread==-1)
+		return (-4); 	/* error al leer */
+	close(infile);
+	close(outfile);
+	return(0); 
+    
+}
+
+// if the files are equal, return 1, otherwise return 0
+int compareFiles(char * FileName1, char * FileName2){
+    int file1,file2, nread;
+    int lines = 0;
+	char character1, character2;
+    
+	if ( (file1 = open(FileName1, O_RDONLY) ) < 0 ){
+        perror("cannot open file");
+		return(-1); // no puede abrirse 
+    
+    }
+    if ( (file2 = open(FileName2, O_RDONLY) ) < 0 ){
+        perror("cannot open file");
+		return(-1); // no puede abrirse 
+    
+    }
+	
+	//lectura de name1 BUFSIZE caracteres de una vez
+	while( (nread = read(file1, &character1, sizeof(char)) ) > 0 )
+	{
+        nread = read(file2, &character2, sizeof(char));
+		if (character1 != character2){
+            close(file1);
+			close(file2);
+			return (0);
+            }
+            
+	}
+	if (nread==-1){
+        perror("Error reading");
+		return (-4); 	// error  
+        }
+    
+	close(file1);    
+    close(file2); 
+    
+    return 1;
 }
