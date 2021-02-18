@@ -71,7 +71,7 @@ function. The destination file must have protections that allow it to be read by
 
 ### Problem 14
 
-``int compareFiles(char * FileName1, char * FileName2);``
+``int compareFiles(char * FileName1, char * FileName2);`` if the files are equal, return 1, otherwise return 0
 
 ### Problem 15
 
