@@ -66,7 +66,7 @@ Ficheros is a Library to manage files in c language
 ``int * readNumbersFile(char * fileName, int * size);``  read a file with numbers and displays it on the screen.
 
 ### Problem 13
-``int copyFile(char * srcFileName, char * srcFileName);``  copy one srcFileName to srcFileName. The original name and the destination are parameters of the
+``int copyFile(char * srcFileName, char * outFileName);``  copy one srcFileName to outFileName. The original name and the destination are parameters of the
 function. The destination file must have protections that allow it to be read by any user, but only to be modified by the owner.
 
 ### Problem 14
