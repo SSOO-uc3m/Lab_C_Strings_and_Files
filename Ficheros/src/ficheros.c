@@ -19,11 +19,15 @@ int * readNumbersFile(char * fileName, int * size){
     int i = 0;
     int arraySize = 0;
     
+	if (!fileExists(fileName)){
+		return(NULL); // file does not exist
+		}
+		 
     file = open(fileName, O_RDONLY);
     if ( file  < 0 )
-		return(NULL); /* cannot create file */
+		return(NULL); // cannot read file 
 	
-	/*lectura de name1 BUFSIZE caracteres de una vez*/
+	
 	while( (nread = read(file, &number, sizeof(number)) ) > 0 )
 	{
         arraySize = (i+1) * sizeof(int); 
@@ -39,7 +43,7 @@ int * readNumbersFile(char * fileName, int * size){
         i++;
 	}
 	if (nread==-1)
-		return (NULL); 	/* error al leer */
+		return (NULL); 	/* error reading*/
 	close(file);    
     *size = i;
     return numbers;
@@ -73,15 +77,20 @@ int countFileLines(char * fileName){
     int file, nread;
     int lines = 0;
 	char buffer [LINES];
+	
+	if (!fileExists(fileName)){
+		return(-1); // file does not exist
+		}
+	
 	if ( (file = open(fileName, O_RDONLY) ) < 0 ){
         perror("cannot open file");
-		return(-1); /* no puede abrirse */
+		return(-2); // cannot open file 
     
     }
-	/*lectura de name1 BUFSIZE caracteres de una vez*/
+	//read file BUFSIZE characters at once
 	while( (nread = read(file, buffer, LINES) ) > 0 )
 	{
-		printf("%s",buffer);
+		//printf("%s",buffer);
         lines+=charOccurrences(buffer,'\n');
 	}
 	if (nread==-1){
@@ -100,13 +109,18 @@ int countFileLines(char * fileName){
     int file, nread;
     int lines = 0;
 	char character;
+	 
+	if (!fileExists(fileName)){
+		return(-1); // file does not exist
+		}
+		 
 	if ( (file = open(fileName, O_RDONLY) ) < 0 ){
         perror("cannot open file");
-		return(-1); // no puede abrirse 
+		return(-1); /
     
     }
 	
-	//lectura de name1 BUFSIZE caracteres de una vez
+
 	while( (nread = read(file, &character, sizeof(char)) ) > 0 )
 	{
 		if (character == '\n')
@@ -125,21 +139,26 @@ int countFileLines(char * fileName){
 int countFileWords(char * fileName){
     int file, nread;
     int words = 0;
-	char buffer [BUFSIZE];
+	char buffer [LINES];
+	
+	if (!fileExists(fileName)){
+		return(-1); // file does not exist
+		}
+	
 	if ( (file = open(fileName, O_RDONLY) ) < 0 ){
         perror("cannot open file");
-		return(-1); /* no puede abrirse */
+		return(-2); // cannot open file 
     
     }
-	/*lectura de name1 BUFSIZE caracteres de una vez*/
-	while( (nread = read(file, buffer, BUFSIZE) ) > 0 )
+	//read file number of characters of a line (LINES) at once
+	while( (nread = read(file, buffer, LINES) ) > 0 )
 	{
-		printf("%s",buffer);
+		//printf("%s",buffer);
         words+=countWords(buffer);
 	}
 	if (nread==-1){
         perror("Error reading");
-		return (-4); 	/* error  */
+		return (-4); 	// error  
         }
         
 	close(file);
@@ -152,49 +171,68 @@ int countFileWords(char * fileName){
 int readFile(char * fileName){
     int file, nread;
 	char buffer [BUFSIZE];
-	if ( (file = open(fileName, O_RDONLY) ) < 0 )
-		return(-1); /* no puede abrirse */
 	
-	/*lectura de name1 BUFSIZE caracteres de una vez*/
+	if (!fileExists(fileName)){
+		perror("file does not exist");
+		return(-1); // file does not exist
+	}
+	
+	if ( (file = open(fileName, O_RDONLY) ) < 0 ){
+        perror("cannot open file");
+		return(-2); 
+	
+	}
+	
+	//read file BUFSIZE characters at once
 	while( (nread = read(file, buffer, BUFSIZE) ) > 0 )
 	{
 		printf("%s",buffer);
 	}
-	if (nread==-1)
-		return (-4); 	/* error al leer */
+	if (nread==-1){
+		perror("Error reading");
+		return (-4); 	// error 	}
+	
 	close(file);
     
     return 0;
 
 }
 
+// check if a file exists
 int fileExists(const char* file) {
     struct stat buf;
     return (stat(file, &buf) == 0);
 }
+
 // copy one srcFileName to srcFileName. The original name and the destination are parameters of the function. The destination file must have protections that allow it to be read by any user, but only to be modified by the owner.
 int copyFile(char * srcFileName, char * outFileName){
    int infile, outfile, nread;
 	char buffer [BUFSIZE];
+	
+	if (!fileExists(srcFileName)){
+		perror("file does not exist");
+		return(-1); // file does not exist
+	}
+	
 	if ( (infile = open(srcFileName, O_RDONLY) ) < 0 )
-		return(-1); /* no puede abrirse */
+		return(-1); // cannot open file
 	if ( (outfile = creat (outFileName, PERM) ) < 0 ) {
 		close (infile);
-		return (-2); /* no puede crearse */
+		return (-2); //cannot create file
 		}
-	/*lectura de name1 BUFSIZE caracteres de una vez*/
+	//read file BUFSIZE characters at once
 	while( (nread = read(infile, buffer, BUFSIZE) ) > 0 )
 	{
-		/*escribir el buffer al archivo de salida*/
+		//write the buffer to the outfile 
 		if (write (outfile, buffer, nread) < nread)
 		{
 			close(infile);
 			close(outfile);
-			return (-3); 			/* error al escribir */
+			return (-3); 			// error writting 
 		}
 	}
 	if (nread==-1)
-		return (-4); 	/* error al leer */
+		return (-4); 	// error reading 
 	close(infile);
 	close(outfile);
 	return(0); 
@@ -207,18 +245,23 @@ int compareFiles(char * FileName1, char * FileName2){
     int lines = 0;
 	char character1, character2;
     
+	if (!fileExists(FileName1) || !fileExists(FileName2)){
+		perror("file does not exist");
+		return(-1); // file does not exist
+	}	
+
+	
 	if ( (file1 = open(FileName1, O_RDONLY) ) < 0 ){
         perror("cannot open file");
-		return(-1); // no puede abrirse 
+		return(-1); // cannot open file
     
     }
     if ( (file2 = open(FileName2, O_RDONLY) ) < 0 ){
         perror("cannot open file");
-		return(-1); // no puede abrirse 
+		return(-1); // cannot open file
     
     }
 	
-	//lectura de name1 BUFSIZE caracteres de una vez
 	while( (nread = read(file1, &character1, sizeof(char)) ) > 0 )
 	{
         nread = read(file2, &character2, sizeof(char));

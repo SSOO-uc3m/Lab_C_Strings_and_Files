@@ -108,7 +108,7 @@ int countWords(char * string){
     {  
         // If next character is a separator, set the  
         // state as OUT  
-        if (*str == ' ' || *str == '\n' || *str == '\t')  
+        if (*str == ' ' || *str == '\n' || *str == '\t' || *str == ',' || *str == '.' || *str == ';')  
             state = 0;  
   
         // If next character is not a word separator and  
@@ -144,7 +144,7 @@ char ** getWords(char * string){
    }
    
 
-  // divide un string en una serie de tokens usando el delimitador delim.
+  // split a string into a series of tokens using the delimiter delim.
   token = strtok (copy,delim);
   while (token != NULL)
   {
@@ -173,7 +173,7 @@ void writeWords(char * string){
   char * delim = " ,.-()";
   char copy[strlen(string)];
    strcpy(copy, string);
-  // divide un string en una serie de tokens usando el delimitador delim.
+  // split a string into a series of tokens using the delimiter delim.
   token = strtok (copy,delim);
   printf("Words: \n");
   while (token != NULL)

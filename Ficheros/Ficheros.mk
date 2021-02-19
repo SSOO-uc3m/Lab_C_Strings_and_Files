@@ -5,16 +5,16 @@
 ## Debug
 ProjectName            :=Ficheros
 ConfigurationName      :=Debug
-WorkspacePath          :=/home/profesor/Documentos/lab_C_strings_and_files
-ProjectPath            :=/home/profesor/Documentos/lab_C_strings_and_files/Ficheros
+WorkspacePath          :=/home/carlos/Documents/Lab_C_Strings_and_Files
+ProjectPath            :=/home/carlos/Documents/Lab_C_Strings_and_Files/Ficheros
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=Profesor
-Date                   :=18/02/21
-CodeLitePath           :=/home/profesor/.codelite
+User                   :=Carlos Tessier
+Date                   :=19/02/21
+CodeLitePath           :=/home/carlos/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
 ObjectSuffix           :=.o
@@ -77,8 +77,8 @@ $(OutputFile): $(Objects)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList)
-	@$(MakeDirCommand) "/home/profesor/Documentos/lab_C_strings_and_files/.build-debug"
-	@echo rebuilt > "/home/profesor/Documentos/lab_C_strings_and_files/.build-debug/Ficheros"
+	@$(MakeDirCommand) "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug"
+	@echo rebuilt > "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug/Ficheros"
 
 MakeIntermediateDirs:
 	@test -d $(ConfigurationName) || $(MakeDirCommand) $(ConfigurationName)
@@ -95,7 +95,7 @@ PreBuild:
 ##
 $(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix): src/ficheros.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_ficheros.c$(DependSuffix) -MM src/ficheros.c
-	$(CC) $(SourceSwitch) "/home/profesor/Documentos/lab_C_strings_and_files/Ficheros/src/ficheros.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "/home/carlos/Documents/Lab_C_Strings_and_Files/Ficheros/src/ficheros.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_ficheros.c$(PreprocessSuffix): src/ficheros.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_ficheros.c$(PreprocessSuffix) src/ficheros.c
 
