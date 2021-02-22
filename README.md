@@ -148,10 +148,11 @@ It is requested through an interrupt mechanism. When requested by a running proc
 When programmed in a high-level language, the request for services to the operating system is made through a call to a specific function, which is responsible for generating the
 system call and the corresponding trap.
 
-![system call](img/system-call.jpg)
-
 
 ````
+
+![system call](img/system-call.png)
+
 ### Question 5
 
 Give some examples that show the need for the operating system to provide mechanisms for communication and synchronization between processes.
@@ -172,10 +173,10 @@ from a bank account.
 
 If the process in charge of withdrawing money is running, the process that consults the balance must be synchronized with the first one and wait for it to finish before executing its balance inquiry function.
 
-![](img/bank-account-processes.jpg)
-
 
 ````
+![bank account processes](img/bank-account-processes.png)
+
 ### Question 6
 
 The command interpreter in LINUX in internal or external to the operating system?
@@ -187,11 +188,9 @@ The command interpreter in LINUX is external to the OS. It is call “Shell”
 
 A good example is the case of LINUX, in which you can install as many command interpreters as you want. There are several installed in the system.
 
-![command interpreter](images/command-interpreter.png)
-
 
 Bsh, csh, ksh, …
 
 ````
-
+![command interpreter](img/command-interpreter.png)
 
