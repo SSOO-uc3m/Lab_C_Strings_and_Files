@@ -1,0 +1,4 @@
+.
+libUtilidades.a
+..
+libFicheros.a
