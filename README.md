@@ -87,7 +87,6 @@ Refactor the following program to store and read students from a file
 
 ``long getFileSize(char * fileName);`` return the size of a file
 
-## Test
 
 ## Test
 
@@ -149,6 +148,9 @@ It is requested through an interrupt mechanism. When requested by a running proc
 When programmed in a high-level language, the request for services to the operating system is made through a call to a specific function, which is responsible for generating the
 system call and the corresponding trap.
 
+![system call](https://github.com/SSOO-uc3m/Lab_C_Strings_and_Files/blob/solution/img/system%20call.png)
+
+
 ````
 ### Question 5
 
@@ -170,6 +172,9 @@ from a bank account.
 
 If the process in charge of withdrawing money is running, the process that consults the balance must be synchronized with the first one and wait for it to finish before executing its balance inquiry function.
 
+![bank account processes](https://github.com/SSOO-uc3m/Lab_C_Strings_and_Files/blob/solution/img/bank%20account%20processes.png)
+
+
 ````
 ### Question 6
 
@@ -181,6 +186,9 @@ Explain you answer.
 The command interpreter in LINUX is external to the OS. It is call “Shell”
 
 A good example is the case of LINUX, in which you can install as many command interpreters as you want. There are several installed in the system.
+
+![command interpreter](https://github.com/SSOO-uc3m/Lab_C_Strings_and_Files/blob/solution/img/command%20interpreter.png)
+
 
 Bsh, csh, ksh, …
 
