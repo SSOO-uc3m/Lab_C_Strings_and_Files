@@ -148,7 +148,7 @@ It is requested through an interrupt mechanism. When requested by a running proc
 When programmed in a high-level language, the request for services to the operating system is made through a call to a specific function, which is responsible for generating the
 system call and the corresponding trap.
 
-![system call](img/system-call.png)
+![system call](img/system-call.jpg)
 
 
 ````
@@ -172,7 +172,7 @@ from a bank account.
 
 If the process in charge of withdrawing money is running, the process that consults the balance must be synchronized with the first one and wait for it to finish before executing its balance inquiry function.
 
-![bank account processes](img/bank-account-processes.png)
+![bank account processes](img/bank-account-processes.jpg)
 
 
 ````
@@ -187,7 +187,7 @@ The command interpreter in LINUX is external to the OS. It is call “Shell”
 
 A good example is the case of LINUX, in which you can install as many command interpreters as you want. There are several installed in the system.
 
-![command interpreter](img/command-interpreter.png)
+![command interpreter](img/command-interpreter.jpg)
 
 
 Bsh, csh, ksh, …
