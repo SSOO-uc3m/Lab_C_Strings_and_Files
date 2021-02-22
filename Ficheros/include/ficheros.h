@@ -21,5 +21,11 @@ int copyFile(char * srcFileName, char * outFileName);
 
 // if the files are equal, return 1, otherwise return 0
 int compareFiles(char * FileName1, char * FileName2);
-    
+
+// save the content of a folder in a filename
+int printDirContent(char * dir, char * fileName); 
+
+// return the size of a file
+long getFileSize(char * fileName);
+
 #endif // __FICHEROS__H__

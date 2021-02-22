@@ -52,3 +52,11 @@ int copyFile(char * srcFileName, char * outFileName){
 int compareFiles(char * FileName1, char * FileName2){
     return -1;
 }
+
+int printDirContent(char * dir, char * fileName){
+    return -1;
+} 
+
+long getFileSize(char * fileName){
+    return -1;
+}
