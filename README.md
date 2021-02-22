@@ -187,7 +187,7 @@ The command interpreter in LINUX is external to the OS. It is call “Shell”
 
 A good example is the case of LINUX, in which you can install as many command interpreters as you want. There are several installed in the system.
 
-![command interpreter](img/command-interpreter.jpg)
+![command interpreter](images/command-interpreter.png)
 
 
 Bsh, csh, ksh, …
