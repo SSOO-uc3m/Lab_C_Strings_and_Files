@@ -79,6 +79,13 @@ Refactor the following program to store and read students from a file
 
 [Problem 6](https://github.com/SSOO-uc3m/Lab_C_pointers/tree/master/Problem_06)
 
+### Problem 16
+
+``int printDirContent(char * dir, char * fileName); `` save the content of a folder in a filename
+
+### Problem 17
+
+``long getFileSize(char * fileName);`` return the size of a file
 
 ## Test
 
@@ -97,3 +104,24 @@ b.- Memory protection.
 c.- I / O instructions that can only be executed in kernel mode.
 
 d.- 2 modes of operation: core and user.
+
+### Question 3
+
+What is the difference between a command and a system call?
+
+### Question 4
+
+How do you request a system call to the operating system?
+
+### Question 5
+
+Give some examples that show the need for the operating system to provide mechanisms for communication and synchronization between processes.
+
+### Question 6
+
+The command interpreter in LINUX in internal or external to the operating system?
+
+Explain you answer.
+
+
+
