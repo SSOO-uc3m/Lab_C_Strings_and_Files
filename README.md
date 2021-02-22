@@ -172,7 +172,7 @@ from a bank account.
 
 If the process in charge of withdrawing money is running, the process that consults the balance must be synchronized with the first one and wait for it to finish before executing its balance inquiry function.
 
-![bank account processes](img/bank-account-processes.jpg)
+![](img/bank-account-processes.jpg)
 
 
 ````
