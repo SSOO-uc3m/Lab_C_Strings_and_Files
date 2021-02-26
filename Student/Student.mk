@@ -3,10 +3,10 @@
 ## any manual changes will be erased      
 ##
 ## Debug
-ProjectName            :=Ficheros
+ProjectName            :=Student
 ConfigurationName      :=Debug
 WorkspacePath          :=/home/carlos/Documents/Lab_C_Strings_and_Files
-ProjectPath            :=/home/carlos/Documents/Lab_C_Strings_and_Files/Ficheros
+ProjectPath            :=/home/carlos/Documents/Lab_C_Strings_and_Files/Student
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
@@ -32,11 +32,11 @@ Preprocessors          :=
 ObjectSwitch           :=-o 
 ArchiveOutputSwitch    := 
 PreprocessOnlySwitch   :=-E
-ObjectsFileList        :="Ficheros.txt"
+ObjectsFileList        :="Student.txt"
 PCHCompileFlags        :=
 MakeDirCommand         :=mkdir -p
 LinkOptions            :=  
-IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). $(IncludeSwitch)./include $(IncludeSwitch)../Utilidades/include 
+IncludePath            :=  $(IncludeSwitch). $(IncludeSwitch). $(IncludeSwitch)./include 
 IncludePCH             := 
 RcIncludePath          := 
 Libs                   := 
@@ -60,7 +60,7 @@ AS       := /usr/bin/as
 ## User defined environment variables
 ##
 CodeLiteDir:=/usr/share/codelite
-Objects0=$(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/src_student.c$(ObjectSuffix) 
 
 
 
@@ -78,7 +78,7 @@ $(OutputFile): $(Objects)
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList)
 	@$(MakeDirCommand) "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug"
-	@echo rebuilt > "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug/Ficheros"
+	@echo rebuilt > "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug/Student"
 
 MakeIntermediateDirs:
 	@test -d $(ConfigurationName) || $(MakeDirCommand) $(ConfigurationName)
@@ -93,11 +93,11 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix): src/ficheros.c
-	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_ficheros.c$(DependSuffix) -MM src/ficheros.c
-	$(CC) $(SourceSwitch) "/home/carlos/Documents/Lab_C_Strings_and_Files/Ficheros/src/ficheros.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_ficheros.c$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/src_ficheros.c$(PreprocessSuffix): src/ficheros.c
-	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_ficheros.c$(PreprocessSuffix) src/ficheros.c
+$(IntermediateDirectory)/src_student.c$(ObjectSuffix): src/student.c
+	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_student.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_student.c$(DependSuffix) -MM src/student.c
+	$(CC) $(SourceSwitch) "/home/carlos/Documents/Lab_C_Strings_and_Files/Student/src/student.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_student.c$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/src_student.c$(PreprocessSuffix): src/student.c
+	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_student.c$(PreprocessSuffix) src/student.c
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

@@ -3,18 +3,21 @@
   <Project Name="Main" Path="Main/Main.project" Active="Yes"/>
   <Project Name="Utilidades" Path="Utilidades/Utilidades.project" Active="No"/>
   <Project Name="Ficheros" Path="Ficheros/Ficheros.project" Active="No"/>
+  <Project Name="Student" Path="Student/Student.project" Active="No"/>
   <BuildMatrix>
     <WorkspaceConfiguration Name="Debug" Selected="yes">
       <Environment/>
       <Project Name="Main" ConfigName="Debug"/>
       <Project Name="Utilidades" ConfigName="Debug"/>
       <Project Name="Ficheros" ConfigName="Debug"/>
+      <Project Name="Student" ConfigName="Debug"/>
     </WorkspaceConfiguration>
     <WorkspaceConfiguration Name="Release" Selected="yes">
       <Environment/>
       <Project Name="Main" ConfigName="Release"/>
       <Project Name="Utilidades" ConfigName="Release"/>
       <Project Name="Ficheros" ConfigName="Release"/>
+      <Project Name="Student" ConfigName="Release"/>
     </WorkspaceConfiguration>
   </BuildMatrix>
 </CodeLite_Workspace>

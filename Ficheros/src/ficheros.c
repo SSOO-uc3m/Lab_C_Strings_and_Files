@@ -237,7 +237,7 @@ int compareFiles(char * FileName1, char * FileName2) {
     while ((nread = read(file1, & character1, sizeof(char))) > 0) {
         nread = read(file2, & character2, sizeof(char));
         if (character1 != character2) {
-            printf("%c - %c \n", character1, character2);
+            //printf("%c - %c \n", character1, character2);
             close(file1);
             close(file2);
             return (-3);
@@ -274,10 +274,10 @@ int printDirContent(char * dir, char * fileName) {
         return (-1); /* cannot create file */
     }
     
-    printf ("%s\n", fileName);
+    //printf ("%s\n", fileName);
     while ((pDirent = readdir(pDir)) != NULL) {
         sprintf(str, "%s\n", pDirent -> d_name);
-        printf ("%s\n", str);
+        //printf ("%s\n", str);
         sz = write(file, str, strlen(str));
         if (sz < 0) {
             perror("Error writing file");
