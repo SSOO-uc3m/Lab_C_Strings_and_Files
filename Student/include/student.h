@@ -5,14 +5,15 @@
 
 
 #define NUM_STUDENTS 10
+#define NAME_LENGTH 20
 #define NUM_MARKS 3
 
 
 // Definition of a Date data type
-typedef struct  {
-  char *name;
-  float *marks;
+typedef struct  {  
+  float marks[NUM_MARKS];
   int numberMarks;
+  char name [NAME_LENGTH];
 } tStudent;
 
 // Table of Student elements
@@ -57,7 +58,13 @@ tStudent* studentTable_find(tStudentTable* table, const char* name);
 // Remove a student from the table
 int studentTable_remove(tStudentTable* table, tStudent* user);
 
+void studentTable_print(tStudentTable* table);
+
+void student_print(tStudent* student);
+
 int writeStudentsFile(char * fileName, tStudentTable* table);
+
+int readStudentsFile(char * fileName, tStudentTable* table);
 
 void getMarks(tStudent c[], int num);
 

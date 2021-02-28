@@ -5,16 +5,16 @@
 ## Debug
 ProjectName            :=Student
 ConfigurationName      :=Debug
-WorkspacePath          :=/home/carlos/Documents/Lab_C_Strings_and_Files
-ProjectPath            :=/home/carlos/Documents/Lab_C_Strings_and_Files/Student
+WorkspacePath          :=/home/profesor/Documentos/lab_C_strings_and_files
+ProjectPath            :=/home/profesor/Documentos/lab_C_strings_and_files/Student
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=Carlos Tessier
-Date                   :=26/02/21
-CodeLitePath           :=/home/carlos/.codelite
+User                   :=Profesor
+Date                   :=28/02/21
+CodeLitePath           :=/home/profesor/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
 ObjectSuffix           :=.o
@@ -77,8 +77,8 @@ $(OutputFile): $(Objects)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList)
-	@$(MakeDirCommand) "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug"
-	@echo rebuilt > "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug/Student"
+	@$(MakeDirCommand) "/home/profesor/Documentos/lab_C_strings_and_files/.build-debug"
+	@echo rebuilt > "/home/profesor/Documentos/lab_C_strings_and_files/.build-debug/Student"
 
 MakeIntermediateDirs:
 	@test -d $(ConfigurationName) || $(MakeDirCommand) $(ConfigurationName)
@@ -95,7 +95,7 @@ PreBuild:
 ##
 $(IntermediateDirectory)/src_student.c$(ObjectSuffix): src/student.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_student.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_student.c$(DependSuffix) -MM src/student.c
-	$(CC) $(SourceSwitch) "/home/carlos/Documents/Lab_C_Strings_and_Files/Student/src/student.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_student.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "/home/profesor/Documentos/lab_C_strings_and_files/Student/src/student.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_student.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_student.c$(PreprocessSuffix): src/student.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_student.c$(PreprocessSuffix) src/student.c
 

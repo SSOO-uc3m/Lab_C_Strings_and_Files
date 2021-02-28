@@ -1,5 +1,5 @@
-libFicheros.a
-.
 libStudent.a
-..
+.
 libUtilidades.a
+..
+libFicheros.a

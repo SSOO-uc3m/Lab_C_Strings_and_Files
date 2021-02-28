@@ -28,7 +28,7 @@ bool run_pr3(tTestSuite * test_suite) {
 // Run all tests for PR1
 bool run_pr3_ex1(tTestSection * test_section) {
 
-bool passed = true, failed = false;
+    bool passed = true, failed = false;
 
     int result;
 
@@ -38,7 +38,7 @@ bool passed = true, failed = false;
     float marks[3];
     // TEST 1: Initialize the table of students
     failed = false;
-    start_test(test_section, "PR1_EX1_1", "Initialize the table of students");
+    start_test(test_section, "PR3_EX1_1", "Initialize the table of students");
     studentTable_init(&students);
 
     if (studentTable_size(&students) != 0) {
@@ -46,11 +46,11 @@ bool passed = true, failed = false;
     }
 
     if (failed) {
-        end_test(test_section, "PR1_EX1_1", false);
+        end_test(test_section, "PR3_EX1_1", false);
         passed = false;
     }
     else {
-        end_test(test_section, "PR1_EX1_1", true);
+        end_test(test_section, "PR3_EX1_1", true);
     }
 
     // TEST 2: Initialize a student
@@ -70,7 +70,7 @@ bool passed = true, failed = false;
 	marks[1] = 6;
 	marks[2] = 6;
 
-    start_test(test_section, "PR1_EX1_2", "Initialize a student");
+    start_test(test_section, "PR3_EX1_2", "Initialize a student");
 
     result = student_init(&student2, "Bob Freeman", marks, 3);
 
@@ -82,16 +82,16 @@ bool passed = true, failed = false;
     }
 
     if (failed) {
-        end_test(test_section, "PR1_EX1_2", false);
+        end_test(test_section, "PR3_EX1_2", false);
         passed = false;
     }
     else {
-        end_test(test_section, "PR1_EX1_2", true);
+        end_test(test_section, "PR3_EX1_2", true);
     }
 
     // TEST 3: Add a new student
     failed = false;
-    start_test(test_section, "PR1_EX1_3", "Add a new student");
+    start_test(test_section, "PR3_EX1_3", "Add a new student");
 
     result = studentTable_add(&students, &student1);
      if (result < 0){
@@ -111,16 +111,16 @@ bool passed = true, failed = false;
     }
 
     if (failed) {
-        end_test(test_section, "PR1_EX1_3", false);
+        end_test(test_section, "PR3_EX1_3", false);
         passed = false;
     }
     else {
-        end_test(test_section, "PR1_EX1_3", true);
+        end_test(test_section, "PR3_EX1_3", true);
     }
 
     // TEST 4: Add more students
     failed = false;
-    start_test(test_section, "PR1_EX1_4", "Add more students");
+    start_test(test_section, "PR3_EX1_4", "Add more students");
     
   	marks[0] = 10;
 	marks[1] = 9;
@@ -168,16 +168,16 @@ bool passed = true, failed = false;
     }
 
     if (failed) {
-        end_test(test_section, "PR1_EX1_4", false);
+        end_test(test_section, "PR3_EX1_4", false);
         passed = false;
     }
     else {
-        end_test(test_section, "PR1_EX1_4", true);
+        end_test(test_section, "PR3_EX1_4", true);
     }
 
     // TEST 5: Remove a student
     failed = false;
-    start_test(test_section, "PR1_EX1_5", "Remove a student");
+    start_test(test_section, "PR3_EX1_5", "Remove a student");
 
     studentAux = studentTable_find(&students, "John Connor");
     if (studentAux == NULL) {
@@ -204,16 +204,16 @@ bool passed = true, failed = false;
     }
 
     if (failed) {
-        end_test(test_section, "PR1_EX1_5", false);
+        end_test(test_section, "PR3_EX1_5", false);
         passed = false;
     }
     else {
-        end_test(test_section, "PR1_EX1_5", true);
+        end_test(test_section, "PR3_EX1_5", true);
     }
 
     // TEST 6: Remove a non existing student
     failed = false;
-    start_test(test_section, "PR1_EX1_6", "Remove a non existing student");
+    start_test(test_section, "PR3_EX1_6", "Remove a non existing student");
 
     result = studentTable_remove(&students, &student3);
     if (result == 0){
@@ -240,11 +240,11 @@ bool passed = true, failed = false;
     }
 
     if (failed) {
-        end_test(test_section, "PR1_EX1_6", false);
+        end_test(test_section, "PR3_EX1_6", false);
         passed = false;
     }
     else {
-        end_test(test_section, "PR1_EX1_6", true);
+        end_test(test_section, "PR3_EX1_6", true);
     }
 
     // Remove used memory
@@ -254,6 +254,8 @@ bool passed = true, failed = false;
     student_free(&student4);
     
     studentTable_free(&students);
+    
+    return passed;
 
 }
 
@@ -264,6 +266,8 @@ bool run_pr3_ex2(tTestSection * test_section) {
 
     tStudentTable students;
     tStudent student1, student2;
+    tStudent * studentAux;
+
     float marks[3];
 	
     //Initialize the table of students
@@ -287,7 +291,7 @@ bool run_pr3_ex2(tTestSection * test_section) {
 
 	
     failed = false;
-    start_test(test_section, "PR1_EX2_1", "Save file students");
+    start_test(test_section, "PR3_EX2_1", "Save file students");
 
 	result = writeStudentsFile("students.bin",&students);
 	
@@ -296,15 +300,49 @@ bool run_pr3_ex2(tTestSection * test_section) {
     }
 
     if (failed) {
-        end_test(test_section, "PR1_EX2_1", false);
+        end_test(test_section, "PR3_EX2_1", false);
         passed = false;
     }
     else {
-        end_test(test_section, "PR1_EX2_1", true);
+        end_test(test_section, "PR3_EX2_1", true);
     }
 
+   // Remove used memory
+    student_free(&student1);
+    student_free(&student2);
+  
     
-    	
+    studentTable_free(&students);
+
+    failed = false;
+    start_test(test_section, "PR3_EX2_2", "Load file students");
+
+	//result = readStudentsFile("students.bin",&students);
+	//studentTable_print(&students);
+    
+    if (result < 0){
+        failed = true;
+    }
+    
+    studentAux = studentTable_find(&students, "Alice Smith");
+    if (studentAux != NULL) {
+        failed = true;
+    }
+    
+    studentAux = studentTable_find(&students, "Bob Freeman");
+    if (studentAux == NULL) {
+        failed = true;
+    }
+
+    if (failed) {
+        end_test(test_section, "PR3_EX2_2", false);
+        passed = false;
+    }
+    else {
+        end_test(test_section, "PR3_EX2_2", true);
+    }
+    
+    studentTable_free(&students);
 
     return passed;
 }

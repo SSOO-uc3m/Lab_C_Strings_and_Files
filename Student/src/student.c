@@ -19,8 +19,8 @@ int student_init(tStudent* student, const char* name, const float* marks, const 
      // Allocate the memory for all the fields, using the length of the provided 
     // text plus 1 space for the "end of string" char '\0'. 
     // To allocate memory we use the malloc command.
-    student->name = (char*)malloc((strlen(name) + 1) * sizeof(char));
-	student->marks = (float*)malloc(numberMarks * sizeof(float));
+    //student->name = (char*)malloc((strlen(name) + 1) * sizeof(char));
+	//student->marks = (float*)malloc(numberMarks * sizeof(float));
 
 	
     // Check that memory has been allocated for all fields. 
@@ -50,7 +50,7 @@ void student_free(tStudent* student){
     // All memory allocated with malloc and realloc needs to be freed using the free command. 
     // In this case, as we use malloc to allocate the fields, we have to free them
 
-    if (student->name != NULL) {
+    /*if (student->name != NULL) {
         free(student->name);
         student->name = NULL;
     }
@@ -59,7 +59,7 @@ void student_free(tStudent* student){
         free(student->marks);
         student->marks = NULL;
     }
-	
+	*/
 	
 
 	}
@@ -308,8 +308,27 @@ int studentTable_remove(tStudentTable* table, tStudent* student){
 
 
 	}
-	
-	
+
+void studentTable_print(tStudentTable* table){
+    
+    for(int i=0; i< table->size; i++){
+        
+        student_print(&table->students[i]);    
+    }	
+    
+}
+
+void student_print(tStudent* student){        
+        
+        printf("Student: %s \n",student->name);
+        printf("Marks: \n");
+        for(int i=0; i< student->numberMarks;i++){
+            printf("%f\t",student->marks[i]);
+            }
+        printf("\n");        
+    
+}
+
 int writeStudentsFile(char * fileName, tStudentTable* table) {
     int file, sz;
     file = open(fileName, O_WRONLY | O_CREAT | O_TRUNC, 0644);
@@ -320,14 +339,46 @@ int writeStudentsFile(char * fileName, tStudentTable* table) {
 	
 
     for (int i = 0; i < table->size ; i++) {
-        //printf("%d\n",number[i]);
-        sz = write(file, & table->students[i], sizeof(tStudent));
+        //student_print(&table->students[i]);
+        sz = write(file, &table->students[i], sizeof(tStudent));
         if (sz < 0) {
             printf("Error writing file %s",fileName);
             close(file);
             return (-1);
         }
     }
+
+    close(file);
+
+    return 0;
+}
+
+int readStudentsFile(char * fileName, tStudentTable* table) {
+    int file, nread;
+    
+    tStudent * student;
+    
+    file = open(fileName, O_RDONLY);
+    if (file < 0){
+		printf("Error opening file %s",fileName);
+        return (-1); /* cannot create file */
+	}
+	
+
+   
+    while ((nread = read(file, student, sizeof(tStudent))) > 0) {
+        //student_print(student);
+        studentTable_add(table, student);
+
+    }
+    
+    if (nread == -1) {
+		printf("Error reading file %s",fileName);
+        close(file);
+        return (-1); /* error reading*/
+    }
+    
+     
 
     close(file);
 
@@ -375,7 +426,7 @@ float * calculateAverage(tStudent c[], int num){
 void getAverage(float average[], int num){
     
   printf("\n");
-  for (int i=0;i<num; i++)
+  for (int i=0;i<num; i++){
     printf ("Average student grade %d=%f\n",i,average[i]);
+    }
 }
-
