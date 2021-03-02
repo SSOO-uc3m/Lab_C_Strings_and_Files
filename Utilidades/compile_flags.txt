@@ -1,10 +1,9 @@
--I/usr/include/c++/7
--I/usr/include/x86_64-linux-gnu/c++/7
--I/usr/include/c++/7/backward
--I/usr/lib/gcc/x86_64-linux-gnu/7/include
+-I/usr/include/c++/9
+-I/usr/include/x86_64-linux-gnu/c++/9
+-I/usr/include/c++/9/backward
+-I/usr/lib/gcc/x86_64-linux-gnu/9/include
 -I/usr/local/include
--I/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed
 -I/usr/include/x86_64-linux-gnu
 -I/usr/include
--I/home/profesor/Documentos/lab_C_strings_and_files/Utilidades
--I/home/profesor/Documentos/lab_C_strings_and_files/Utilidades/include
+-I/home/carlos/Documents/Lab_C_Strings_and_Files/Utilidades
+-I/home/carlos/Documents/Lab_C_Strings_and_Files/Utilidades/include
