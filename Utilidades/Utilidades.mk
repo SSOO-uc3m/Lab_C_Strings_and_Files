@@ -5,16 +5,16 @@
 ## Debug
 ProjectName            :=Utilidades
 ConfigurationName      :=Debug
-WorkspacePath          :=/home/profesor/Documentos/lab_C_strings_and_files
-ProjectPath            :=/home/profesor/Documentos/lab_C_strings_and_files/Utilidades
+WorkspacePath          :=/home/carlos/Documents/Lab_C_Strings_and_Files
+ProjectPath            :=/home/carlos/Documents/Lab_C_Strings_and_Files/Utilidades
 IntermediateDirectory  :=$(ConfigurationName)
 OutDir                 := $(IntermediateDirectory)
 CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
-User                   :=Profesor
-Date                   :=22/02/21
-CodeLitePath           :=/home/profesor/.codelite
+User                   :=Carlos Tessier
+Date                   :=02/03/21
+CodeLitePath           :=/home/carlos/.codelite
 LinkerName             :=/usr/bin/g++
 SharedObjectLinkerName :=/usr/bin/g++ -shared -fPIC
 ObjectSuffix           :=.o
@@ -77,8 +77,8 @@ $(OutputFile): $(Objects)
 	@echo "" > $(IntermediateDirectory)/.d
 	@echo $(Objects0)  > $(ObjectsFileList)
 	$(AR) $(ArchiveOutputSwitch)$(OutputFile) @$(ObjectsFileList)
-	@$(MakeDirCommand) "/home/profesor/Documentos/lab_C_strings_and_files/.build-debug"
-	@echo rebuilt > "/home/profesor/Documentos/lab_C_strings_and_files/.build-debug/Utilidades"
+	@$(MakeDirCommand) "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug"
+	@echo rebuilt > "/home/carlos/Documents/Lab_C_Strings_and_Files/.build-debug/Utilidades"
 
 MakeIntermediateDirs:
 	@test -d $(ConfigurationName) || $(MakeDirCommand) $(ConfigurationName)
@@ -95,7 +95,7 @@ PreBuild:
 ##
 $(IntermediateDirectory)/src_utilidades.c$(ObjectSuffix): src/utilidades.c
 	@$(CC) $(CFLAGS) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/src_utilidades.c$(ObjectSuffix) -MF$(IntermediateDirectory)/src_utilidades.c$(DependSuffix) -MM src/utilidades.c
-	$(CC) $(SourceSwitch) "/home/profesor/Documentos/lab_C_strings_and_files/Utilidades/src/utilidades.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_utilidades.c$(ObjectSuffix) $(IncludePath)
+	$(CC) $(SourceSwitch) "/home/carlos/Documents/Lab_C_Strings_and_Files/Utilidades/src/utilidades.c" $(CFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/src_utilidades.c$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/src_utilidades.c$(PreprocessSuffix): src/utilidades.c
 	$(CC) $(CFLAGS) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/src_utilidades.c$(PreprocessSuffix) src/utilidades.c
 

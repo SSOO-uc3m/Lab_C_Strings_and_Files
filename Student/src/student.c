@@ -31,7 +31,7 @@ int student_init(tStudent* student, const char* name, const float* marks, const 
         return -1;
     }
 
-    strcpy(student->name, name);
+    strcpy(student->name, name);	
 	
 	for(int i=0;i <numberMarks; i++){
 		student->marks [i] = marks[i];
@@ -356,7 +356,7 @@ int writeStudentsFile(char * fileName, tStudentTable* table) {
 int readStudentsFile(char * fileName, tStudentTable* table) {
     int file, nread;
     
-    tStudent * student;
+    tStudent student;
     
     file = open(fileName, O_RDONLY);
     if (file < 0){
@@ -366,9 +366,9 @@ int readStudentsFile(char * fileName, tStudentTable* table) {
 	
 
    
-    while ((nread = read(file, student, sizeof(tStudent))) > 0) {
+    while ((nread = read(file, &student, sizeof(tStudent))) > 0) {
         //student_print(student);
-        studentTable_add(table, student);
+        studentTable_add(table, &student);
 
     }
     
